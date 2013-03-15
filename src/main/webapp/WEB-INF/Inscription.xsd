@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+	targetNamespace="http://www.example.org/Inscription" xmlns:tns="http://www.example.org/Inscription"
+	elementFormDefault="qualified">
+
+<xs:element name="Inscription" type="tns:InscriptionType"/>
+	<xs:complexType name="InscriptionType">
+		<xs:sequence>
+			<xs:element name="Nom">
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="Prenom">
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="email">
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="adresse" type="adresseType"/>
+			<xs:element name="identifiant" type="integer"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="adresseType">
+		<xs:sequence>
+			<xs:element name="adr" type="xs:string" />
+			<xs:element name="codePostale" type="xs:integer" />
+		</xs:sequence>
+	</xs:complexType>
+	<xs:element name="InscriptionRequest" type="tns:InscriptionRequestType" />
+	<xs:complexType name="InscriptionRequestType">
+		<xs:all>
+			<xs:element type="xs:string" name="nom" />
+			<xs:element type="xs:string" name="prenom" />
+			<xs:element type="xs:string" name="email" />
+		</xs:all>
+	</xs:complexType>
+	<xs:element name="InscriptionResponse" type="tns:InscriptionResponseType" />
+	<xs:complexType name="InscriptionResponseType">
+		<xs:all>
+			<xs:element type="xs:string" name="Ok" />
+			<xs:element name="codeErreur" type="codeErreurType"/>
+		</xs:all>
+	</xs:complexType>
+	<xs:complexType name="codeErreurType">
+	   <xs:element type="xs:string"name="100"></xs:element>	
+	   <xs:element type="xs:string"name="110"></xs:element>	
+	   <xs:element type="xs:string"name="200"></xs:element>	
+	</xs:complexType>
+</xs:schema>
