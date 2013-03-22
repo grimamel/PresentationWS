@@ -3,34 +3,49 @@
 	targetNamespace="http://www.example.org/Inscription" xmlns:tns="http://www.example.org/Inscription"
 	elementFormDefault="qualified">
 
-<xs:element name="Inscription" type="tns:InscriptionType"/>
+<xs:element name="Enseignant" type="tns:InscriptionType"/>
 	<xs:complexType name="InscriptionType">
 		<xs:sequence>
+		<xs:element name="identifiant">
+				<xs:simpleType>
+					<xs:restriction base="xs:integer">
+					<xs:enumeration value="1"/>
+					<xs:enumeration value="2"/>
+					<xs:enumeration value="3"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
 			<xs:element name="Nom">
 				<xs:simpleType>
 					<xs:restriction base="xs:string">
+					<xs:enumeration value="Dupont"/>
+					<xs:enumeration value="Duront"/>
+					<xs:enumeration value="David"/>
 					</xs:restriction>
 				</xs:simpleType>
 			</xs:element>
 			<xs:element name="Prenom">
 				<xs:simpleType>
 					<xs:restriction base="xs:string">
+					<xs:enumeration value="Julien"/>
+					<xs:enumeration value="Martin"/>
+					<xs:enumeration value="Louis"/>
 					</xs:restriction>
 				</xs:simpleType>
 			</xs:element>
 			<xs:element name="email">
 				<xs:simpleType>
 					<xs:restriction base="xs:string">
+					<xs:enumeration value="julien.dupont"></xs:enumeration>
 					</xs:restriction>
 				</xs:simpleType>
 			</xs:element>
-			<xs:element name="adresse" type="adresseType"/>
-			<xs:element name="identifiant" type="integer"/>
+			<xs:element name="adresse" type="tns:adresseType"/>
 		</xs:sequence>
 	</xs:complexType>
 	<xs:complexType name="adresseType">
 		<xs:sequence>
-			<xs:element name="adr" type="xs:string" />
+			<xs:element name="rue" type="xs:NMTOKENS" />
 			<xs:element name="codePostale" type="xs:integer" />
 		</xs:sequence>
 	</xs:complexType>
@@ -40,18 +55,8 @@
 			<xs:element type="xs:string" name="nom" />
 			<xs:element type="xs:string" name="prenom" />
 			<xs:element type="xs:string" name="email" />
+			<xs:element type="xs:string" name="codePostale"/>
 		</xs:all>
 	</xs:complexType>
-	<xs:element name="InscriptionResponse" type="tns:InscriptionResponseType" />
-	<xs:complexType name="InscriptionResponseType">
-		<xs:all>
-			<xs:element type="xs:string" name="Ok" />
-			<xs:element name="codeErreur" type="codeErreurType"/>
-		</xs:all>
-	</xs:complexType>
-	<xs:complexType name="codeErreurType">
-	   <xs:element type="xs:string"name="100"></xs:element>	
-	   <xs:element type="xs:string"name="110"></xs:element>	
-	   <xs:element type="xs:string"name="200"></xs:element>	
-	</xs:complexType>
+	
 </xs:schema>

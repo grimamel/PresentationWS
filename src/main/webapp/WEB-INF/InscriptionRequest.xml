@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<inscriptionRequest xmlns="http://iaws.ws/inscription/schemas">
+   <enseignant>
+        <identifiant>42</identifiant>
+        <nom>Arjen</nom>
+        <prenom>Poutsma</prenom>
+        <email>arjen.poutsma@univ-tlse3.fr</email>
+        <adresse>
+        	<codePostale>31400</codePostale>
+        </adresse>
+    </enseignant>
+</inscriptionRequest>
